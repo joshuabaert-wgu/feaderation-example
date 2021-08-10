@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "learnerUi",
+    uniqueName: "cat",
     publicPath: "auto"
   },
   optimization: {
@@ -25,16 +25,12 @@ module.exports = {
     new ModuleFederationPlugin({
 
         // For remotes (please adjust)
-        name: "learnerUi",
+        name: "cat",
         filename: "remoteEntry.js",
         exposes: {
-            './learner-module': './projects/learner-ui/src/app/app.module.ts',
+            './cat-module': './projects/cat/src/app/cat-ui.module.ts',
+            './search-component': './projects/cat/src/app/search-button/search-button.component.ts',
         },
-
-        // For hosts (please adjust)
-        // remotes: {
-        //     "learner": "learner@http://localhost:4200/remoteEntry.js",
-        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },

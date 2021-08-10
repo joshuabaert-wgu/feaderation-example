@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
+import { ComponentProxyComponent } from '../../../learner/projects/learner-ui/src/app/component-proxy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ComponentProxyComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -17,10 +21,19 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
         loadChildren: () => loadRemoteModule({
           remoteEntry: 'http://localhost:3000/remoteEntry.js',
           remoteName: 'learnerUi',
-          exposedModule: './Module',
-        }).then(m => m.AppModule)
-      }
-    ])
+          exposedModule: './learner-module',
+        }).then(m => m.AppModule),
+      },
+      {
+        path: 'cat',
+        loadChildren: () => loadRemoteModule({
+          // remoteEntry: 'http://localhost:3100/remoteEntry.js',
+          remoteName: 'cat',
+          exposedModule: './cat-module',
+        }).then(m => m.CatUiModule),
+      },
+    ]),
+    ModuleFederationToolsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
