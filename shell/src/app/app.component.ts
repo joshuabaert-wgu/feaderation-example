@@ -3,11 +3,31 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   // templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  // styleUrls: ['./app.component.scss'],
+  styles: [`
+    header {
+      display: flex;
+      flex-direction: column;
+    }
+  `],
   template: `
-    <h1>Shell</h1>
+    <header>
+      <h1>Shell</h1>
 
-    <router-outlet></router-outlet>
+      <div>
+        <button routerLink="">Home</button>
+
+        <button routerLink="learner">Learner UI</button>
+
+        <button routerLink="cat">Learner UI</button>
+      </div>
+    </header>
+
+    <main>
+
+      <router-outlet></router-outlet>
+    </main>
+
 
   `,
 })
