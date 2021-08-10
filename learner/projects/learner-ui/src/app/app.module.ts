@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { loadRemoteModule } from '@angular-architects/module-federation';
 
 @NgModule({
   declarations: [
@@ -11,16 +10,12 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
+    RouterModule.forChild([
       {
-        path: 'learner',
-        loadChildren: () => loadRemoteModule({
-          remoteEntry: 'http://localhost:3000/remoteEntry.js',
-          remoteName: 'learnerUi',
-          exposedModule: './Module',
-        }).then(m => m.AppModule)
-      }
-    ])
+        path: '',
+        component: AppComponent,
+      },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -105,6 +105,119 @@
           }
         }
       }
+    },
+    "learner-ui": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/learner-ui",
+      "sourceRoot": "projects/learner-ui/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/learner-ui",
+            "index": "projects/learner-ui/src/index.html",
+            "main": "projects/learner-ui/src/main.ts",
+            "polyfills": "projects/learner-ui/src/polyfills.ts",
+            "tsConfig": "projects/learner-ui/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/learner-ui/src/favicon.ico",
+              "projects/learner-ui/src/assets"
+            ],
+            "styles": [
+              "projects/learner-ui/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/learner-ui/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/learner-ui/src/environments/environment.ts",
+                  "with": "projects/learner-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/learner-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "learner-ui:build:production",
+              "extraWebpackConfig": "projects/learner-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "learner-ui:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "projects/learner-ui/webpack.config.js",
+            "port": 3000
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "learner-ui:build",
+            "extraWebpackConfig": "projects/learner-ui/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/learner-ui/src/test.ts",
+            "polyfills": "projects/learner-ui/src/polyfills.ts",
+            "tsConfig": "projects/learner-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/learner-ui/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/learner-ui/src/favicon.ico",
+              "projects/learner-ui/src/assets"
+            ],
+            "styles": [
+              "projects/learner-ui/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/learner-ui/webpack.config.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "learner"

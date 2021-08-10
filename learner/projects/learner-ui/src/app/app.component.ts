@@ -5,12 +5,9 @@ import { Component } from '@angular/core';
   // templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   template: `
-    <h1>Shell</h1>
-
-    <router-outlet></router-outlet>
-
+    <h1>Learner-ui</h1>
   `,
 })
 export class AppComponent {
-  title = 'shell';
+  title = 'learner-ui';
 }
