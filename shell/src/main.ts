@@ -2,7 +2,7 @@ import { loadRemoteEntry, loadRemoteModule } from '@angular-architects/module-fe
 
 Promise.all([
   loadRemoteModule({
-    remoteEntry: 'http://localhost:3100/remoteEntry.js',
+    remoteEntry: 'http://localhost:3100/catEntry.js',
     remoteName: 'cat',
     exposedModule: './cat-module',
   })

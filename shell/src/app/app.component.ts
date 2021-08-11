@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,6 @@ import { WebComponentWrapperOptions } from '@angular-architects/module-federatio
     header {
       display: flex;
       flex-direction: column;
-    }
-    div button {
-      margin: 0 15px;
     }
   `],
   template: `
@@ -27,12 +23,9 @@ import { WebComponentWrapperOptions } from '@angular-architects/module-federatio
       </div>
 
       <component-proxy></component-proxy>
-<!--      <mft-wc-wrapper [options]="item"></mft-wc-wrapper>-->
-<!--      <cat-search-button></cat-search-button>-->
     </header>
 
     <main>
-
       <router-outlet></router-outlet>
     </main>
 
@@ -42,18 +35,4 @@ import { WebComponentWrapperOptions } from '@angular-architects/module-federatio
 export class AppComponent {
   @ViewChild('header') headerEle: ElementRef | any;
   title = 'shell';
-  // item: WebComponentWrapperOptions = {
-  //   remoteEntry: 'http://localhost:3100/remoteEntry.js',
-  //   remoteName: 'cat',
-  //   exposedModule: 'SearchModule',
-  //   elementName: 'cat-search-button'
-  // };
-
-  // ngAfterViewInit() {
-  //   setTimeout(() => {
-  //     const searchButton = document.createElement('cat-search-button')
-  //     this.headerEle.nativeElement.append(searchButton)
-  //     console.log(this.headerEle.nativeElement);
-  //   }, 1000)
-  // }
 }

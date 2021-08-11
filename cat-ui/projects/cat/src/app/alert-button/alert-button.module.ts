@@ -1,19 +1,19 @@
 import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { SearchButtonComponent } from './search-button.component';
+import { AlertButtonComponent } from './alert-button.component';
 import { AlertModule } from '../alert/alert.module';
 
 @NgModule({
   imports: [AlertModule],
-  exports: [SearchButtonComponent],
-  declarations: [SearchButtonComponent],
+  exports: [AlertButtonComponent],
+  declarations: [AlertButtonComponent],
 })
-export class SearchButtonModule {
+export class AlertButtonModule {
   constructor(private injector: Injector) {
   }
 
   ngDoBootstrap() {
-    const ce = createCustomElement(SearchButtonComponent, { injector: this.injector });
+    const ce = createCustomElement(AlertButtonComponent, { injector: this.injector });
     customElements.define('cat-search-button', ce);
   }
 }

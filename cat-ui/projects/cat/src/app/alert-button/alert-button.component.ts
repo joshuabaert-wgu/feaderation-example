@@ -3,15 +3,15 @@ import { AlertService } from '../alert/alert.service';
 
 @Component({
   selector: 'cat-search-button',
-  // styleUrls: ['search-button.component.scss'],
-  // templateUrl: 'search-button.component.html',
+  // styleUrls: ['alert-button.component.scss'],
+  // templateUrl: 'alert-button.component.html',
   styles: [``],
   template: `
-    <button (click)="searchClicked()">Search button</button>
+    <button (click)="searchClicked()">Alert Button</button>
   `,
 })
 
-export class SearchButtonComponent {
+export class AlertButtonComponent {
   constructor(private service: AlertService) {
   }
 

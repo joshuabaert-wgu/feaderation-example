@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
-import { ComponentProxyComponent } from '../../../learner/projects/learner-ui/src/app/component-proxy.component';
+import { ComponentProxyComponent } from './component-proxy.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ComponentProxyComponent } from '../../../learner/projects/learner-ui/sr
       {
         path: 'learner',
         loadChildren: () => loadRemoteModule({
-          remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          remoteEntry: 'http://localhost:3000/learnerEntry.js',
           remoteName: 'learnerUi',
           exposedModule: './learner-module',
         }).then(m => m.AppModule),
@@ -27,7 +27,6 @@ import { ComponentProxyComponent } from '../../../learner/projects/learner-ui/sr
       {
         path: 'cat',
         loadChildren: () => loadRemoteModule({
-          // remoteEntry: 'http://localhost:3100/remoteEntry.js',
           remoteName: 'cat',
           exposedModule: './cat-module',
         }).then(m => m.CatUiModule),

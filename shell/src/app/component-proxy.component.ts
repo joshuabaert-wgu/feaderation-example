@@ -38,8 +38,8 @@ export class ComponentProxyComponent implements OnChanges {
 
     const Component = await loadRemoteModule({
       remoteName: 'cat',
-      exposedModule: './search-component',
-    }).then(m => m['SearchButtonComponent'])
+      exposedModule: './alert-component',
+    }).then(m => m['AlertButtonComponent'])
 
     const factory = this.cfr.resolveComponentFactory(Component);
     const compRef = this.viewContainer.createComponent(factory, undefined, this.injector)

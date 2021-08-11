@@ -26,10 +26,10 @@ module.exports = {
 
         // For remotes (please adjust)
         name: "cat",
-        filename: "remoteEntry.js",
+        filename: "catEntry.js",
         exposes: {
             './cat-module': './projects/cat/src/app/cat-ui.module.ts',
-            './search-component': './projects/cat/src/app/search-button/search-button.component.ts',
+            './alert-component': './projects/cat/src/app/alert-button/alert-button.component.ts',
         },
 
         shared: share({

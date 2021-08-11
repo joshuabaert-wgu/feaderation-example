@@ -26,7 +26,7 @@ module.exports = {
 
         // For remotes (please adjust)
         name: "learnerUi",
-        filename: "remoteEntry.js",
+        filename: "learnerEntry.js",
         exposes: {
             './learner-module': './projects/learner-ui/src/app/app.module.ts',
         },

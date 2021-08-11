@@ -3,9 +3,9 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CatUiApp } from './cat-ui-app.component';
-import { SearchButtonComponent } from './search-button/search-button.component';
+import { AlertButtonComponent } from './alert-button/alert-button.component';
 import { RouterModule } from '@angular/router';
-import { SearchButtonModule } from './search-button/search-button.module';
+import { AlertButtonModule } from './alert-button/alert-button.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SearchButtonModule } from './search-button/search-button.module';
     RouterModule.forChild([
       { path: '', component: CatUiApp },
     ]),
-    SearchButtonModule,
+    AlertButtonModule,
   ],
   providers: [],
   bootstrap: [
