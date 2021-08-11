@@ -21,8 +21,8 @@ import { ComponentProxyComponent } from './component-proxy.component';
         loadChildren: () => loadRemoteModule({
           remoteEntry: 'http://localhost:3000/learnerEntry.js',
           remoteName: 'learnerUi',
-          exposedModule: './learner-module',
-        }).then(m => m.AppModule),
+          exposedModule: './LearnerModule',
+        }).then(m => m.LearnerModule),
       },
       {
         path: 'cat',

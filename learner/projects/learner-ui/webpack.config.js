@@ -28,7 +28,7 @@ module.exports = {
         name: "learnerUi",
         filename: "learnerEntry.js",
         exposes: {
-            './learner-module': './projects/learner-ui/src/app/app.module.ts',
+            './LearnerModule': './projects/learner-ui/src/app/learner.module.ts',
         },
 
         // For hosts (please adjust)
