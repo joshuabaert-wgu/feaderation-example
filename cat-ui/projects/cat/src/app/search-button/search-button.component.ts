@@ -7,7 +7,7 @@ import { AlertService } from '../alert/alert.service';
   // templateUrl: 'search-button.component.html',
   styles: [``],
   template: `
-    <button (click)="searchClicked()">Search Cat</button>
+    <button (click)="searchClicked()">Search button</button>
   `,
 })
 
