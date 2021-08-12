@@ -4,10 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AlertService {
-  amount = 0
   message(message: any) {
-    console.log(`sending alert form service ${this.amount}`);
+    console.log(`sending alert form service`);
     alert(message);
-    this.amount++;
   }
 }
