@@ -13,35 +13,36 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 })
 
 export class ComponentProxyComponent implements OnChanges {
-  @ViewChild('placeholder', {read: ViewContainerRef, static: true})
-  viewContainer: ViewContainerRef | undefined
+  @ViewChild('placeholder', { read: ViewContainerRef, static: true })
+  viewContainer: ViewContainerRef | undefined;
 
   constructor(
     private injector: Injector,
-    private cfr: ComponentFactoryResolver
+    private cfr: ComponentFactoryResolver,
   ) {
   }
 
   ngOnChanges() {
     console.log('doing on changes');
-    this.loadComponent()
+    this.loadComponent();
   }
 
   ngAfterViewInit() {
     console.log('after View Init');
-    this.loadComponent()
+    this.loadComponent();
   }
 
   async loadComponent() {
-    if(!this.viewContainer) return
+    if (!this.viewContainer) return;
     this.viewContainer.clear();
 
     const Component = await loadRemoteModule({
+      remoteEntry: 'http://localhost:3100/catEntry.js',
       remoteName: 'cat',
       exposedModule: './alert-component',
-    }).then(m => m['AlertButtonComponent'])
+    }).then(m => m['AlertButtonComponent']);
 
     const factory = this.cfr.resolveComponentFactory(Component);
-    const compRef = this.viewContainer.createComponent(factory, undefined, this.injector)
+    const compRef = this.viewContainer.createComponent(factory, undefined, this.injector);
   }
 }
