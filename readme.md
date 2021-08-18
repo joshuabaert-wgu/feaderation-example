@@ -50,11 +50,13 @@ There are two ways to bring code from a Micro Front End.
 1. You will need to ensure you have the MFE setup to be lazy loaded by having a `RouterModule.forChild()` being used by the MFE module
 2. Import the external module in the router setup 
 ```ts
+import { loadRemoteModule } from '@angular-architects/module-federation';
+
 RouterModule.forRoot([
   {
-    path: 'finance',
+    path: 'learner',
     loadChildren: () => loadRemoteModule({
-      remoteEntry: `{FinanceUrl}/financeEntry.js`,
+      remoteEntry: `{learnerUrl}/learnerEntry.js`,
       remoteName: 'learner',
       exposedModule: './LearnerModule',
     }).then(m => m.LearnerModule),
