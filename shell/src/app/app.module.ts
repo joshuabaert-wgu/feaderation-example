@@ -31,6 +31,14 @@ import { ComponentProxyComponent } from './component-proxy.component';
           exposedModule: './cat-module',
         }).then(m => m.CatUiModule),
       },
+      {
+        path: 'offering',
+        loadChildren: () => loadRemoteModule({
+          remoteEntry: 'http://localhost:4201/offeringUiAppEntry.js',
+          remoteName: 'offeringUiApp',
+          exposedModule: './OfferingAppModule',
+        }).then(m => m.OfferingAppModule),
+      },
     ]),
     ModuleFederationToolsModule,
   ],

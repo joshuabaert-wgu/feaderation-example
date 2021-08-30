@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently -n w: npm:start:*",
-    "start:shell": "cd ./shell && npm start",
-    "start:learner": "cd ./learner && npm start",
-    "start:cat": "cd ./cat-ui && npm start",
-    "start:finance": "cd ./finance && npm start",
+    "start:shell": "cd ./shell && yarn start",
+    "start:learner": "cd ./learner && yarn start",
+    "start:cat": "cd ./cat-ui && yarn start",
+    "start:finance": "cd ./finance && yarn start",
     "postinstall": "concurrently -n w: npm:install:*",
-    "install:shell": "cd ./shell && npm i",
-    "install:learner": "cd ./learner && npm i",
-    "install:finance": "cd ./finance && npm i",
-    "install:cat": "cd ./cat-ui && npm i"
+    "install:shell": "cd ./shell && yarn",
+    "install:learner": "cd ./learner && yarn",
+    "install:finance": "cd ./finance && yarn",
+    "install:cat": "cd ./cat-ui && yarn"
   },
   "author": "",
   "license": "ISC",

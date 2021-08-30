@@ -29,6 +29,7 @@ This will have you set up as far as what needs to be done to the project.
 2. run `ng add @angular-architects/module-federation --port {ProjectPort}` you can also add `--project {ProjectName}` if it is not the default
 3. Navigate to the now created `webpack.config.js` in the project
 4. Uncomment and edit the remote section that should look something like 
+5. run via something like `ng server projectName` (note if you run into problems about ngx-build-plus you have to nuke your yarn.lock & node_modules)
 ```JS
   // For remotes (please adjust)
   name: "learner",
@@ -69,3 +70,11 @@ RouterModule.forRoot([
 It is possible to use a single component and not it just needs to be exposed. Refer to the "exposes" section of the webpack.config.js.
 
 Unfortunately it is not as simple, so I will refer to the component-proxy.component.ts in the shell project [here](./shell/src/app/component-proxy.component.ts)
+
+
+### Notes for Upgrading to Angular 12+
+
+Follow the upgrade guide provided by angular. 
+
+I also suggest nuking yarn.lock and node_modules between each step
+
