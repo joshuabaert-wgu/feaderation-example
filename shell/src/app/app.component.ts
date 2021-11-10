@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgpCoreService } from 'ngp-core';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,16 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
         <button routerLink="learner">Learner UI</button>
 
         <button routerLink="cat">Cat UI</button>
+
+        <button (click)="addCounter()">add app</button>
+        <button (click)="subtractCounter()">subtract app</button>
+        <button (click)="getCounter()">update app</button>
+        <p>{{counter}}</p>
       </div>
 
       <component-proxy></component-proxy>
+
+
     </header>
 
     <main>
@@ -35,4 +43,26 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
   @ViewChild('header') headerEle: ElementRef | any;
   title = 'shell';
+  // @ts-ignore
+  counter: number;
+
+  constructor(private sharedService: NgpCoreService) {
+    this.getCounter();
+  }
+
+  addCounter() {
+    console.log(this.sharedService.addCounter());
+    this.getCounter();
+  }
+
+  subtractCounter() {
+    console.log(this.sharedService.subtractCounter());
+    this.getCounter();
+  }
+
+  getCounter() {
+    this.counter = this.sharedService.getCounter();
+    console.log(this.counter);
+  }
+
 }

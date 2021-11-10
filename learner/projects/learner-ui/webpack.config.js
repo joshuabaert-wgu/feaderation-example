@@ -42,6 +42,7 @@ module.exports = {
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/compiler": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "ngp-core": { singleton: true, strictVersion: false, requiredVersion: 'auto', includeSecondaries: {} },
 
           ...sharedMappings.getDescriptors()
         })
